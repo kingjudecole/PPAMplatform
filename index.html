@@ -2050,5 +2050,18 @@ function submitContact(){
   const email=document.getElementById('ctEmail')?.value.trim();
   const subject=document.getElementById('ctSubject')?.value;
   const message=document.getElementById('ctMessage')?.value.trim();
-  if(!name||!email||!message){ alert('Please fill in your name, email and message.'); return; }
-  const msg=encodeURIComponent(`From: ${name}\nEmail: ${email}\nSubject: ${s
+  if(!name||!email||!message){ alert('Please fill in your name, email and message.'); return; }  const msg=encodeURIComponent(`From: ${name}\nSubject: ${subject}\nEmail: ${email}\n\n${message}`);
+  window.open(`https://wa.me/233243087949?text=${msg}`,'_blank','noopener');
+  const s=document.getElementById('ctSuccess'); if(s) s.style.display='block';
+}
+
+/* ─── SERVICE CARD NAVIGATION ─── */
+document.querySelectorAll('.svc-card').forEach(c => {
+  c.addEventListener('click', () => {
+    document.getElementById('sermons')?.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+</script>
+</body>
+</html>
