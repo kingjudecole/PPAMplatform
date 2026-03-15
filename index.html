@@ -853,8 +853,56 @@ textarea.cf-input { min-height:100px; resize:vertical; }
 .cp-wa a:hover { color:var(--gold-lt); }
 
 /* ═══════════════════════════════════
-   BOTTOM SHEET
+   SUBTLE 3D BUTTON ANIMATION
+   Minimal perspective lift on hover
 ═══════════════════════════════════ */
+.btn {
+  transform-style: preserve-3d;
+  transform-origin: center bottom;
+}
+.btn:hover {
+  transform: perspective(600px) rotateX(-4deg) translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.25);
+}
+.btn:active {
+  transform: perspective(600px) rotateX(2deg) translateY(1px) scale(.98);
+  box-shadow: 0 2px 6px rgba(0,0,0,.25);
+}
+.btn-primary:hover { background: var(--blue-lt); transform: perspective(600px) rotateX(-4deg) translateY(-3px) scale(1.02); box-shadow: 0 12px 32px var(--blue-glow), 0 4px 10px rgba(0,0,0,.3); }
+.btn-black:hover   { background: #111; border-color: rgba(255,255,255,.3); }
+.btn-ghost:hover   { background: var(--glass-bg); border-color: rgba(255,255,255,.28); }
+.btn-gold:hover    { background: var(--gold-faint); box-shadow: 0 0 24px rgba(200,164,84,.2), 0 8px 20px rgba(0,0,0,.3); }
+
+/* ═══════════════════════════════════
+   SERIF / ITALIC FONT WEIGHT BOOST
+   Cormorant Garamond italic sections
+═══════════════════════════════════ */
+.t-italic {
+  font-weight: 500 !important;
+}
+.about-quote {
+  font-weight: 500;
+  font-size: clamp(19px, 2.1vw, 27px);
+}
+.qb-text {
+  font-weight: 500;
+}
+.feat-txt .t-italic,
+.t-h2 .t-italic,
+.t-h3 .t-italic {
+  font-weight: 500 !important;
+}
+/* Hero italic line */
+.italic-line {
+  font-weight: 500 !important;
+}
+/* All Cormorant/serif elements get a weight bump */
+[class*="font-serif"],
+.hgc-num, .ci-val {
+  font-weight: 500;
+}
+
+
 .bs-backdrop { position:fixed; inset:0; z-index:800; background:rgba(0,0,0,.7); backdrop-filter:blur(8px); opacity:0; pointer-events:none; transition:opacity var(--dur-slow); }
 .bs-backdrop.open { opacity:1; pointer-events:all; }
 .bottom-sheet { position:fixed; bottom:0; left:0; right:0; z-index:801; background:var(--surface); border-radius:var(--r-xl) var(--r-xl) 0 0; border-top:1px solid var(--rim); padding:0 20px 40px; max-height:85svh; overflow-y:auto; transform:translateY(100%); transition:transform var(--dur-xl) var(--ease-app); overscroll-behavior:contain; -webkit-overflow-scrolling:touch; }
@@ -962,7 +1010,7 @@ footer {
 <section id="hero">
   <div class="hero-video-wrap">
     <video id="heroVideo" autoplay muted loop playsinline preload="auto"
-      poster="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%201.jpg">
+      poster="Pic_1.jpg">
       <source src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/vid11.mp4" type="video/mp4"/>
       <!-- Fallback local -->
       <source src="vid11.mp4" type="video/mp4"/>
@@ -1041,7 +1089,7 @@ footer {
       </svg>
       <div class="ann-badge">This Sunday</div>
       <div class="ann-title">Join Us in Worship</div>
-      <div class="ann-body">Sunday services at 7:30AM and 10:00AM. Watered Garden Church, Dansoman, Accra. All are welcome — come expecting an encounter.</div>
+      <div class="ann-body">Two services every Sunday: <strong>1st Service 8:45AM – 10:45AM</strong> and <strong>2nd Service 11:00AM – 1:00PM</strong>. Watered Garden Church, Dansoman, Accra. All are welcome — come expecting an encounter.</div>
     </div>
     <div class="ann-card reveal" data-d="2">
       <!-- Play circle SVG -->
@@ -1077,7 +1125,7 @@ footer {
 <section id="about">
   <div class="about-grid">
     <div class="about-img-wrap reveal-l">
-      <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%201.jpg" alt="Prophet Prince Manasseh Atsu" loading="lazy"/>
+      <img src="Pic_2.jpg" alt="Prophet Prince Manasseh Atsu" loading="lazy"/>
       <div class="portrait-tag">
         <div class="ptag-name">Prophet Prince Manasseh Atsu</div>
         <div class="ptag-title">Founder · Presiding Prophet</div>
@@ -1129,19 +1177,19 @@ footer {
 <!-- ═══ PHOTO STRIP ═══ -->
 <div class="photo-strip">
   <div class="ps-item">
-    <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%209.jpg" alt="Ministry moment — Jesus Crusade" loading="lazy"/>
+    <img src="Pic_2.jpg" alt="Ministry moment — Prophet Atsu preaching" loading="lazy"/>
     <div class="ps-item-overlay"></div>
-    <div class="ps-item-label">Jesus Crusade</div>
+    <div class="ps-item-label">Prophetic Ministry</div>
   </div>
   <div class="ps-item">
-    <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%204.jpg" alt="Ministry team" loading="lazy"/>
-    <div class="ps-item-overlay"></div>
-    <div class="ps-item-label">Ministry Team</div>
-  </div>
-  <div class="ps-item">
-    <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%206.jpg" alt="Jesus Festival 2024" loading="lazy"/>
+    <img src="Pic_7.jpg" alt="Jesus Festival Worship Night" loading="lazy"/>
     <div class="ps-item-overlay"></div>
     <div class="ps-item-label">Jesus Festival 2024</div>
+  </div>
+  <div class="ps-item">
+    <img src="pic_3.jpg" alt="Jesus Festival Drama" loading="lazy"/>
+    <div class="ps-item-overlay"></div>
+    <div class="ps-item-label">Worship &amp; Arts</div>
   </div>
 </div>
 
@@ -1166,36 +1214,43 @@ footer {
   </div>
   <div class="services-grid">
     <div class="svc-card reveal" data-d="1">
-      <div class="svc-bg" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%201.jpg');"></div>
+      <div class="svc-bg" style="background-image:url('Pic_1.jpg');"></div>
       <div class="svc-overlay"></div>
       <div class="svc-num">01</div>
-      <div class="svc-content"><div class="svc-title">Sunday Worship</div><div class="svc-time">7:30AM &amp; 10:00AM</div></div>
+      <div class="svc-content"><div class="svc-title">1st Service</div><div class="svc-time">8:45AM — 10:45AM</div></div>
     </div>
     <div class="svc-card reveal" data-d="2">
-      <div class="svc-bg" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%209.jpg');"></div>
+      <div class="svc-bg" style="background-image:url('IPic_1.jpg');"></div>
       <div class="svc-overlay"></div>
       <div class="svc-num">02</div>
-      <div class="svc-content"><div class="svc-title">Midweek Power</div><div class="svc-time">Wednesdays · 6:00PM</div></div>
+      <div class="svc-content"><div class="svc-title">2nd Service</div><div class="svc-time">11:00AM — 1:00PM</div></div>
     </div>
     <div class="svc-card reveal" data-d="3">
-      <div class="svc-bg" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%206.jpg');"></div>
+      <div class="svc-bg" style="background-image:url('Pic_7.jpg');"></div>
       <div class="svc-overlay"></div>
       <div class="svc-num">03</div>
-      <div class="svc-content"><div class="svc-title">Jesus Festival</div><div class="svc-time">Annual · Multi-Night</div></div>
+      <div class="svc-content"><div class="svc-title">Midweek Power</div><div class="svc-time">Wednesdays · 6:00PM</div></div>
     </div>
     <div class="svc-card reveal" data-d="4">
-      <div class="svc-bg" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%204.jpg');"></div>
+      <div class="svc-bg" style="background-image:url('pic_3.jpg');"></div>
       <div class="svc-overlay"></div>
       <div class="svc-num">04</div>
-      <div class="svc-content"><div class="svc-title">Prayer Night</div><div class="svc-time">Monthly · Fridays</div></div>
+      <div class="svc-content"><div class="svc-title">Jesus Festival</div><div class="svc-time">Annual · Multi-Night</div></div>
     </div>
   </div>
 </section>
 
 <!-- ═══ FEATURE ROW 1 ═══ -->
 <div class="feat-row">
-  <div class="feat-img reveal-l">
-    <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%202.jpg" alt="Prophet Atsu preaching" loading="lazy"/>
+  <div class="feat-img reveal-l" style="display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:480px;">
+    <div style="position:relative;overflow:hidden;">
+      <img src="pic_3.jpg" alt="Prophet Atsu with ministry team" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 10s ease;"/>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,.15);"></div>
+    </div>
+    <div style="position:relative;overflow:hidden;">
+      <img src="Pic_1.jpg" alt="Prophet Prince Manasseh Atsu" loading="lazy" style="width:100%;height:100%;object-fit:cover;transition:transform 10s ease;"/>
+      <div style="position:absolute;inset:0;background:rgba(0,0,0,.1);"></div>
+    </div>
   </div>
   <div class="feat-txt">
     <p class="t-eyebrow gold reveal" data-d="1" style="margin-bottom:14px;">Messages That Move Nations</p>
@@ -1217,7 +1272,7 @@ footer {
 <!-- ═══ FEATURE ROW 2 (reversed, light) ═══ -->
 <div class="feat-row rev">
   <div class="feat-img reveal-r">
-    <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/IPic_1.jpg" alt="Ministry impact" loading="lazy"/>
+    <img src="IPic_1.jpg" alt="Ministry impact" loading="lazy"/>
   </div>
   <div class="feat-txt light">
     <p class="t-eyebrow reveal" data-d="1" style="margin-bottom:14px;color:var(--blue);">Global Mandate</p>
@@ -1315,7 +1370,7 @@ footer {
     <!-- 6th card — placeholder with channel link -->
     <div class="sc reveal" data-d="6" style="cursor:pointer;" onclick="window.open('https://www.youtube.com/@prophetprincemanassehatsu4550','_blank')">
       <div class="sc-thumb" style="background:var(--elevated);">
-        <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%209.jpg" alt="More sermons" loading="lazy" style="opacity:.6;"/>
+        <img src="Pic_2.jpg" alt="More sermons" loading="lazy" style="opacity:.6;"/>
         <div class="sc-overlay" style="opacity:1;background:rgba(0,0,0,.55);display:flex;flex-direction:column;gap:8px;">
           <div class="sc-play">+</div>
           <div style="font-family:var(--font-display);font-size:12px;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.08em;">More Messages</div>
@@ -1366,25 +1421,25 @@ footer {
 
   <div class="books-row">
     <div class="book-item reveal" data-d="1">
-      <div class="book-cover"><img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/The%20Blueprint%20of%20Ministry.jpg" alt="The Blueprint of Ministry" loading="lazy"/><div class="book-sheen"></div></div>
+      <div class="book-cover"><img src="The_Blueprint_of_Ministry.jpg" alt="The Blueprint of Ministry" loading="lazy"/><div class="book-sheen"></div></div>
       <div class="book-title">The Blueprint of Ministry</div>
       <div class="book-author">Prophet Prince Manasseh Atsu</div>
       <a href="https://www.amazon.com/s?k=prophet+prince+manasseh+atsu" target="_blank" rel="noopener" class="btn btn-black btn-sm" style="margin-top:10px;">Order on Amazon</a>
     </div>
     <div class="book-item reveal" data-d="2">
-      <div class="book-cover"><img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/Discerning%20The%20Lord%27s%20Body....jpg" alt="Discerning the Lord's Body" loading="lazy"/><div class="book-sheen"></div></div>
+      <div class="book-cover"><img src="Discerning_The_Lord_s_Body_The_Reason_Believers_Are_Weak__Sick_and_Die.jpg" alt="Discerning the Lord's Body" loading="lazy"/><div class="book-sheen"></div></div>
       <div class="book-title">Discerning the Lord's Body</div>
       <div class="book-author">Prophet Prince Manasseh Atsu</div>
       <a href="https://www.amazon.com/s?k=prophet+prince+manasseh+atsu" target="_blank" rel="noopener" class="btn btn-black btn-sm" style="margin-top:10px;">Order on Amazon</a>
     </div>
     <div class="book-item reveal" data-d="3">
-      <div class="book-cover"><img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/Where%20Is%20The%20Love%20That%20You%20Promised.jpg" alt="Where Is The Love That You Promised?" loading="lazy"/><div class="book-sheen"></div></div>
+      <div class="book-cover"><img src="Where_Is_The_Love_That_You_Promised.jpg" alt="Where Is The Love That You Promised?" loading="lazy"/><div class="book-sheen"></div></div>
       <div class="book-title">Where Is The Love That You Promised?</div>
       <div class="book-author">Prophet Prince Manasseh Atsu</div>
       <a href="https://www.amazon.com/s?k=prophet+prince+manasseh+atsu" target="_blank" rel="noopener" class="btn btn-black btn-sm" style="margin-top:10px;">Order on Amazon</a>
     </div>
     <div class="book-item reveal" data-d="4">
-      <div class="book-cover"><img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/Win%20or%20Ruin.jpg" alt="Win or Ruin" loading="lazy"/><div class="book-sheen"></div></div>
+      <div class="book-cover"><img src="Win_or_Ruin.jpg" alt="Win or Ruin" loading="lazy"/><div class="book-sheen"></div></div>
       <div class="book-title">Win or Ruin</div>
       <div class="book-author">Prophet Prince Manasseh Atsu</div>
       <a href="https://www.amazon.com/s?k=prophet+prince+manasseh+atsu" target="_blank" rel="noopener" class="btn btn-black btn-sm" style="margin-top:10px;">Order on Amazon</a>
@@ -1392,7 +1447,7 @@ footer {
   </div>
 
   <div class="amazon-strip reveal" data-d="1" style="max-width:1400px;margin:52px auto 0;">
-    <div><img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/Available%20On%20Amazon.jpg" alt="Available on Amazon" loading="lazy"/></div>
+    <div><img src="Available_On_Amazon.jpg" alt="Available on Amazon" loading="lazy"/></div>
     <div>
       <p class="t-eyebrow gold" style="margin-bottom:14px;">Available Worldwide</p>
       <h3 class="t-h3" style="margin-bottom:16px;">Order Your Copy<br><span class="t-italic t-accent">Today on Amazon</span></h3>
@@ -1413,7 +1468,7 @@ footer {
     <h2 class="t-h2 reveal" data-d="2" style="margin-bottom:48px;">Encounter<br><span class="t-italic t-accent">The Living God</span></h2>
     <div class="events-grid">
       <div class="ev-card reveal" data-d="1">
-        <div class="ev-img" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%209.jpg');"></div>
+        <div class="ev-img" style="background-image:url('Pic_7.jpg');"></div>
         <div class="ev-body">
           <div class="ev-badge">Annual · Multi-Night</div>
           <div class="ev-title">Jesus Festival 2025</div>
@@ -1423,7 +1478,7 @@ footer {
         </div>
       </div>
       <div class="ev-card reveal" data-d="2">
-        <div class="ev-img" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%206.jpg');"></div>
+        <div class="ev-img" style="background-image:url('Pic_2.jpg');"></div>
         <div class="ev-body">
           <div class="ev-badge">Annual Crusade</div>
           <div class="ev-title">Jesus Crusade</div>
@@ -1433,7 +1488,7 @@ footer {
         </div>
       </div>
       <div class="ev-card reveal" data-d="3">
-        <div class="ev-img" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%204.jpg');"></div>
+        <div class="ev-img" style="background-image:url('IPic_1.jpg');"></div>
         <div class="ev-body">
           <div class="ev-badge">Monthly</div>
           <div class="ev-title">Prophetic Prayer Night</div>
@@ -1443,7 +1498,7 @@ footer {
         </div>
       </div>
       <div class="ev-card reveal" data-d="4">
-        <div class="ev-img" style="background-image:url('https://raw.githubusercontent.com/kingjudecole/wgc-media/main/pic%202.jpg');"></div>
+        <div class="ev-img" style="background-image:url('Playback.jpg');"></div>
         <div class="ev-body">
           <div class="ev-badge">Quarterly</div>
           <div class="ev-title">Ministers' Convocation</div>
@@ -1455,6 +1510,18 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- ═══ OUR YEAR OF SOULS BANNER ═══ -->
+<div style="position:relative;overflow:hidden;height:380px;border-top:1px solid var(--rim);border-bottom:1px solid var(--rim);">
+  <img src="Our_Year_Of_Souls.jpg" alt="Our Year of Souls — Mark 16:15-20" loading="lazy"
+    style="width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 10s ease;"
+    onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"/>
+  <div style="position:absolute;inset:0;background:rgba(0,0,0,.35);"></div>
+  <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:40px 7vw;text-align:center;">
+    <p style="font-family:var(--font-body);font-size:10px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:10px;">Theme for the Year</p>
+    <p style="font-family:var(--font-body);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);">Mark 16:15–20</p>
+  </div>
+</div>
 
 <!-- ═══ SECOND QUOTE BREAK ═══ -->
 <div class="quote-break" style="background:var(--surface);">
@@ -1479,7 +1546,7 @@ footer {
   <!-- Hero image strip -->
   <div class="partner-hero reveal" data-d="1">
     <div class="ph-img">
-      <img src="https://raw.githubusercontent.com/kingjudecole/wgc-media/main/IPic_1.jpg" alt="Ministry gathering" loading="lazy"/>
+      <img src="Our_Year_Of_Souls.jpg" alt="Our Year of Souls — Ministry 2025" loading="lazy" style="object-position:center center;"/>
     </div>
     <div class="ph-text">
       <p class="t-eyebrow gold" style="margin-bottom:14px;">Why Give?</p>
@@ -1559,7 +1626,7 @@ footer {
     <div class="gi-cell">
       <div class="gi-label">Bank Transfer</div>
       <div class="gi-val">Ghana &amp; International</div>
-      <div class="gi-note">wateredgardengh@gmail.com</div>
+      <div class="gi-note"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d4a3b5a0b1a6b1b0b3b5a6b0b1bab3bc94b3b9b5bdb8fab7bbb9">[email&#160;protected]</a></div>
     </div>
     <div class="gi-cell">
       <div class="gi-label">WhatsApp Giving</div>
@@ -1569,7 +1636,7 @@ footer {
     <div class="gi-cell">
       <div class="gi-label">Online / International</div>
       <div class="gi-val">Contact for Details</div>
-      <a href="mailto:wateredgardengh@gmail.com" class="btn btn-ghost btn-sm" style="margin-top:12px;">Email for Info</a>
+      <a href="/cdn-cgi/l/email-protection#1d6a7c69786f78797a7c6f7978737a755d7a707c7471337e7270" class="btn btn-ghost btn-sm" style="margin-top:12px;">Email for Info</a>
     </div>
   </div>
 </section>
@@ -1598,7 +1665,7 @@ footer {
           </div>
           <div class="ci reveal" data-d="4">
             <div class="ci-lbl">Email</div>
-            <a href="mailto:wateredgardengh@gmail.com" class="ci-val ci-link" style="font-size:15px;transition:color var(--dur-fast);">wateredgardengh@gmail.com</a>
+            <a href="/cdn-cgi/l/email-protection#354254415047505152544751505b525d755258545c591b565a58" class="ci-val ci-link" style="font-size:15px;transition:color var(--dur-fast);"><span class="__cf_email__" data-cfemail="631402170611060704021107060d040b23040e020a0f4d000c0e">[email&#160;protected]</span></a>
           </div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px;" class="reveal" data-d="5">
@@ -1675,7 +1742,7 @@ footer {
       <a href="#partners" class="footer-lnk">Become a Partner</a>
       <a href="#contact"  class="footer-lnk">Contact Us</a>
       <a href="https://wa.me/233243087949" target="_blank" rel="noopener" class="footer-lnk">WhatsApp</a>
-      <a href="mailto:wateredgardengh@gmail.com" class="footer-lnk">Email</a>
+      <a href="/cdn-cgi/l/email-protection#9aedfbeeffe8fffefdfbe8fefff4fdf2dafdf7fbf3f6b4f9f5f7" class="footer-lnk">Email</a>
     </div>
     <div>
       <div class="footer-col-title">Follow</div>
@@ -1688,7 +1755,7 @@ footer {
   </div>
   <div class="footer-bottom">
     <span>© 2025 Watered Garden Church Ministry International. All rights reserved.</span>
-    <span>Dansoman, Accra, Ghana · wateredgardengh@gmail.com</span>
+    <span>Dansoman, Accra, Ghana · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f28593869780979695938096979c959ab2959f939b9edc919d9f">[email&#160;protected]</a></span>
   </div>
 </footer>
 
@@ -1758,7 +1825,7 @@ footer {
      7. Book 3D tilt
      8. Surprise hover interactions
 ═══════════════════════════════════════════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 'use strict';
 
 /* ─── 1. NAV ─── */
@@ -1861,8 +1928,8 @@ function toggleChat(){
   if(chatOpen) document.getElementById('cpInput')?.focus();
 }
 const chatQ = {
-  'service': 'Sunday services: 7:30AM & 10:00AM. Midweek: Wednesdays 6PM. Watered Garden Church, Dansoman, Accra.',
-  'sunday': 'Sunday services: 7:30AM & 10:00AM at Watered Garden Church, Dansoman.',
+  'service': '1st Sunday Service: 8:45AM – 10:45AM. 2nd Sunday Service: 11:00AM – 1:00PM. Midweek: Wednesdays 6PM. Watered Garden Church, Dansoman, Accra.',
+  'sunday': '1st Service 8:45AM–10:45AM · 2nd Service 11AM–1PM. Watered Garden Church, Dansoman, Accra.',
   'prayer': "We'd love to pray with you! Share your request here or WhatsApp +233 243 087 949.",
   'book': 'All 4 books available on Amazon worldwide. Ghana orders: WhatsApp +233 243 087 949 or call 0302318294.',
   'partner': 'Becoming a partner means investing in Kingdom work across 6 nations. Visit our Partners section or WhatsApp us.',
@@ -1984,21 +2051,4 @@ function submitContact(){
   const subject=document.getElementById('ctSubject')?.value;
   const message=document.getElementById('ctMessage')?.value.trim();
   if(!name||!email||!message){ alert('Please fill in your name, email and message.'); return; }
-  const msg=encodeURIComponent(`From: ${name}\nEmail: ${email}\nSubject: ${subject}\n\n${message}`);
-  window.open(`https://wa.me/233243087949?text=${msg}`,'_blank','noopener');
-  const s=document.getElementById('ctSuccess'); if(s) s.style.display='block';
-}
-
-/* ─── SERVICE CARD NAVIGATION ─── */
-document.querySelectorAll('.svc-card').forEach(c => {
-  c.addEventListener('click', () => {
-    const t=c.querySelector('.svc-title')?.textContent||'';
-    if(t.includes('Sunday')||t.includes('Midweek')||t.includes('Festival')||t.includes('Prayer')){
-      document.getElementById('sermons')?.scrollIntoView({behavior:'smooth'});
-    }
-  });
-});
-
-</script>
-</body>
-</html>
+  const msg=encodeURIComponent(`From: ${name}\nEmail: ${email}\nSubject: ${s
